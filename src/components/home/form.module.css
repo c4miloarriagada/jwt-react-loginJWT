@@ -1,0 +1,11 @@
+.input {
+    --c-text: rgb(50, 50, 80);
+    --c-bg: rgb(252, 252, 252);
+    --c-outline: rgb(55, 45 , 190);
+    display: grid;
+    gap: 1ch;
+    position: relative;
+    max-width: 190px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
