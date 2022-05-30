@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Register = ()=>{
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
-    const [role, setRole] = useState('');
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate()
@@ -15,7 +14,7 @@ const Register = ()=>{
     const handleRegister = async(e)=>{
         e.preventDefault();
         try {
-            await authService.register(name, password,email,role).then(
+            await authService.register(name, password,email).then(
                 (response)=>{
                     navigate('/')
                     window.location.reload()
@@ -26,11 +25,12 @@ const Register = ()=>{
         }
     }
     return (
-      <div>
+      <div className="container">
 
         <h1>Register</h1>
-        <form onSubmit={handleRegister}>
+        <form   onSubmit={handleRegister}>
           <input
+            className="form-control "
             type="text"
             value={name}
             name="name"
@@ -38,28 +38,26 @@ const Register = ()=>{
             onChange={(e) => setName(e.target.value)}
             
           />
+          <label className="form-label"> Name </label>
         <input
+         className="form-control"
             type="text"
             value={password}
             name="password"
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          <label class="form-label"> Password </label>
           <input
+          className="form-control"
             type="text"
             value={email}
             name="email"
             placeholder="email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            type="text"
-            value={role}
-            name="role"
-            placeholder="rol"
-            onChange={(e) => setRole(e.target.value)}
-          />
-          <button>Register</button>
+          <label class="form-label"> Email </label>
+          <button  class="btn btn-primary btn-block mb-4">Register</button>
         </form>
       </div>
       );

@@ -15,13 +15,13 @@ const signup = (email, password)=>{
 }
 
 
-const register = (name, password, email, role)=>{
+const register = (name, password, email)=>{
+
     return axios
         .post("http://localhost:8000/users/",{
-           name, email, password, role
+           name, email, password
         })
         .then((response)=>{
-            console.log(response.data.token)
             if(response.data.token){
                 localStorage.setItem('user', JSON.stringify(response.data))
             }
